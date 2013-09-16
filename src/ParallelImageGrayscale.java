@@ -22,7 +22,7 @@ public class ParallelImageGrayscale
 		this.filePath = filepath;
 		this.inImage = null;
 		readImage();
-		this.outImage = new BufferedImage(this.inImage.getWidth(), this.inImage.getHeight(), BufferedImage.TYPE_BYTE_GRAY);
+		this.outImage = new BufferedImage(this.inImage.getWidth(), this.inImage.getHeight(), BufferedImage.TYPE_INT_RGB);
 	}
 
 	private void readImage()

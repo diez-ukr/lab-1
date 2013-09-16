@@ -24,10 +24,15 @@ public class GrayscaleConverter implements Runnable
 
 		int data[] = aSrc.getRGB(0, aStartLine, this.aSrc.getWidth(), aStopLine - aStartLine + 1, null, 0, this.aSrc.getWidth());
 
-		for (int d : data)
+		for (int i = 0; i < data.length; i++)
 		{
-			Color c = new Color(d);
-			d = (new Color((int) (0.2126 * c.getRed() + 0.7152 * c.getGreen() + 0.0722 * c.getBlue()))).getRGB();
+			Color c = new Color(data[i]);
+			int intensivity = (int) (0.2126 * c.getRed() + 0.7152 * c.getGreen() + 0.0722 * c.getBlue());
+			data[i] = (new Color(
+					intensivity,
+					intensivity,
+					intensivity
+			)).getRGB();
 		}
 
 		aDst.setRGB(0, aStartLine, this.aSrc.getWidth(), aStopLine - aStartLine + 1, data, 0, this.aSrc.getWidth());
